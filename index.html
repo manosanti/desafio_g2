@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"
+        href="https://play-lh.googleusercontent.com/DS_cXC2lkJBPUUxIu579yD-Vonud0LWnBxYv_LEnx1xFiSm2b3ZU2b4eYuXbDy-RTZQ=w240-h480-rw"
+        type="image/x-icon">
+    <title>CPF ou CNPJ | Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+<body>
+    <main>
+        <div id="container">
+            <div class="row">
+                <h1 id="application-title">Cadastro CPF ou CNPJ</h1>
+                <form action="" name="register_cpf_cnpj" method="" onsubmit="return validator.validateCPForCNPJ()">
+                    <div class="switch">
+                        <span>CPF</span>
+                        <input type="checkbox" id="check">
+                        <label for="check" class="button"></label>
+                        <span>CNPJ</span>
+                    </div>
+
+                    <div class="tips">
+                        <ul class="cpfTips">
+                            <li>CPF: 11 dígitos<span class="tipsRequired">*</span></li>
+                            <li>Inserir apenas números<span class="tipsRequired">*</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tips">
+                        <ul class="cnpjTips">
+                            <li>CNPJ: 14 dígitos<span class="tipsRequired">*</span></li>
+                            <li>Inserir apenas números<span class="tipsRequired">*</span></li>
+                        </ul>
+                    </div>
+                    <input class="cpf_cnpj" name="cpf_cnpj" autocomplete="off" id="form" type="text" placeholder="CPF">
+
+                    <button type="submit" class="btn-register">Cadastrar</button>
+                </form>
+
+                <div>
+                    <table>
+                        <caption class="caption-table">
+                            <p>Lista de CPF's e CNPJ's</p>
+                        </caption>
+                        <thead id="tableHead">
+                            <tr>
+                                <th>CPF/CNPJ</th>
+                                <th>Tipo</th>
+                                <th>Apagar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableData"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./main.js" type="text/javascript"></script>
+</body>
+
+</html>

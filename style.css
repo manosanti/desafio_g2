@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --bg-white: #FFF;
+    --bg-dark: #655b5b;
+    --bg-blue: #2871E6;
+    --bg-red: #DD1313;
+    --border: 2.25rem;
+
+    /* Hover */
+
+    --bg-blue-hover: #1f5dc1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", 'sans-serif';
+}
+
+/* Formulário Box */
+
+#application-title {
+    text-align: center;
+}
+
+#container {
+    max-width: 50%;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 4rem;
+    border-radius: var(--border);
+    background-color: var(--bg-white);
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+
+}
+
+.switch {
+    margin: 1rem auto;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.switch>.button {
+    display: inline-block;
+    background-color: var(--bg-blue);
+    width: 3.5rem;
+    height: 2.25rem;
+    border-radius: 5.25rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.switch>.button::before {
+    position: absolute;
+    content: '';
+    background-color: var(--bg-white);
+    width: 1.625rem;
+    height: 1.625rem;
+    border-radius: 12.5rem;
+    margin: .3125rem;
+    transition: 0.4s;
+}
+
+input:checked+.button::before {
+    transform: translateX(1.25rem);
+}
+
+#check {
+    display: none;
+}
+
+.cpf_cnpj {
+    width: 100%;
+    border-radius: var(--border);
+    height: 3rem;
+    padding: 0 .8rem;
+    border: solid .125rem var(--bg-blue);
+    margin: .2rem 0;
+
+    &:focus {
+        border: none;
+        padding: none;
+    }
+}
+
+.tips {
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+}
+
+.tips>ul>li {
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.tipsRequired {
+    color: red;
+}
+
+.btn-register {
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    border-radius: var(--border);
+    border: solid .125rem var(--bg-blue);
+    cursor: pointer;
+    background-color: var(--bg-blue);
+    color: var(--bg-white);
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.btn-register:hover {
+    background-color: var(--bg-blue-hover);
+}
+
+#tableHead {
+    color: var(--bg-white);
+}
+
+.caption-table {
+    width: 100%;
+    margin: 1.875rem 0 1rem 0;
+}
+
+.caption-table>p {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Tabela CPF's e CNPJ's */
+
+/* Estilo geral */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+caption {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Estilo do cabeçalho */
+th {
+    background-color: #2871E6;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo das células */
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.cnpjTips {
+    display: none;
+}
+
+.btnRemove {
+    text-align: center;
+}
+.btnRemove i {
+    color: var(--bg-red);
+}
