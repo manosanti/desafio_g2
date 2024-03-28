@@ -4,32 +4,33 @@ class FormValidator {
 
         $(document).ready(function(){
             _this.loop_cpfs();
+
+            $('#check').trigger('change');
         });
 
         $('#form').on('input', function() {
             let cpf_cnpj = $(this).val();
             cpf_cnpj = cpf_cnpj.replace(/\D/g, '');
-        
+    
             if ($('#check').prop('checked')) {
                 cpf_cnpj = cpf_cnpj.replace(/^(\d{2})(\d)/, '$1.$2');
                 cpf_cnpj = cpf_cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
                 cpf_cnpj = cpf_cnpj.replace(/\.(\d{3})(\d)/, '.$1/$2');
                 cpf_cnpj = cpf_cnpj.replace(/(\d{4})(\d)/, '$1-$2');
             } else {
-                cpf_cnpj = cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-                cpf_cnpj = cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-                cpf_cnpj = cpf_cnpj.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                cpf_cnpj = cpf_cnpj.replace(/^(\d{3})(\d)/, '$1.$2');
+                cpf_cnpj = cpf_cnpj.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+                cpf_cnpj = cpf_cnpj.replace(/\.(\d{3})(\d{1,2})$/, '.$1-$2');
             }
-        
+    
             $(this).val(cpf_cnpj);
         });
-        
 
-        $('#check').on('click', function(){
+        $('#check').on('change', function(){
             const isChecked = $(this).prop('checked');
-            
+    
             $('.cnpjTips').hide();
-
+    
             if (isChecked) {
                 $('.cpfTips').hide();
                 $('.cnpjTips').show();
@@ -41,6 +42,9 @@ class FormValidator {
                 $('#form').attr('placeholder', 'CPF');
                 $('#form').attr('maxlength', '14');
             }
+    
+            // Dispara o evento de input para reformatar o campo
+            $('#form').trigger('input');
         });
 
         $('#tableData').on('click', '.btnRemove', function(e){
