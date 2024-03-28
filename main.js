@@ -42,8 +42,7 @@ class FormValidator {
                 $('#form').attr('placeholder', 'CPF');
                 $('#form').attr('maxlength', '14');
             }
-    
-            // Dispara o evento de input para reformatar o campo
+
             $('#form').trigger('input');
         });
 
@@ -88,6 +87,15 @@ class FormValidator {
     
         let cpf_cnpj_array = JSON.parse(localStorage.getItem('cpf_cnpj')) || [];
     
+        if(cpf_cnpj.length === 11) {
+            cpf_cnpj = cpf_cnpj.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        } else if (cpf_cnpj.length === 14) {
+            cpf_cnpj = cpf_cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+        } else {
+            alert('CPF ou CNPJ inválido.');
+            return false;
+        }
+    
         const exists = cpf_cnpj_array.some(item => item.number === cpf_cnpj);
     
         if (exists) {
@@ -96,22 +104,17 @@ class FormValidator {
             return;
         }
     
-        if(cpf_cnpj.length === 11) {
-            cpf_cnpj = cpf_cnpj.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-            cpf_cnpj_array.push({id: cpf_cnpj_array.length + 1, number: cpf_cnpj, type: 'CPF'});
-            console.log('CPF');
-        } else if (cpf_cnpj.length === 14) {
-            cpf_cnpj = cpf_cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+        if (cpf_cnpj.length === 14) {
             cpf_cnpj_array.push({id: cpf_cnpj_array.length + 1, number: cpf_cnpj, type: 'CNPJ'});
             console.log('CNPJ');
         } else {
-            alert('CPF ou CNPJ inválido.');
-            return false;
+            cpf_cnpj_array.push({id: cpf_cnpj_array.length + 1, number: cpf_cnpj, type: 'CPF'});
+            console.log('CPF');
         }
     
         location.reload();
         localStorage.setItem('cpf_cnpj', JSON.stringify(cpf_cnpj_array));
-    }    
+    }      
 
     templateTable({id, number, type}) {
         return `
