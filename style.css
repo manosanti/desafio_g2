@@ -184,3 +184,15 @@ td {
 .btnRemove i {
     color: var(--bg-red);
 }
+
+/* Media Query */
+
+@media (max-width: 768px) {
+    #container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+    .row {
+        padding: 1.5rem;
+    }
+}
