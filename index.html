@@ -13,36 +13,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- <style id="accessibilityStyles"></style> -->
-    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <style id="accessibilityStyles"></style> -->
+</head>
+
 <body class="light">
     <main>
         <div id="container">
-            
-            <!-- <div id="accessibilityMenu">
-                <button onclick="toggleHighContrast()">Alto Contraste</button>
-                <button onclick="toggleDarkMode()">Modo Escuro</button>
-                <button onclick="increaseFontSize()">Aumentar Fonte</button>
-                <button onclick="resetFontSize()">Fonte Original</button>
-                <button onclick="decreaseFontSize()">Diminuir Fonte</button>
-                <button onclick="toggleMarker()">Marcador</button>
-                <button onclick="toggleGuideLine()">Linha Guia</button>
-                <button onclick="reset()">Redefinir</button>
-            </div> -->
-            <input type="checkbox" id="btn" name="btn">
-            <label for="checkbox1" class="borabill">Opção 1</label>
-            
-            <!-- <div id="accessibilityMenu">
-                <div class="menu-items">
-                    <ul>
-                        <li></li>
-                        <li>Menu Item 2</li>
-                        <li>Menu Item 3</li>
-                    </ul>
+            <button id="myButton" onclick="toggleMenu()"><i class="fa-solid fa-universal-access"></i></button>
+
+            <div id="myMenu">
+                <div>
+                    <input type="checkbox" id="btnDark" name="btnDark">
+                    <label for="checkbox1">Modo Escuro</label>
                 </div>
-            </div> -->
-            
+                <div>
+                    <input type="checkbox" id="high-contrast" name="high-contrast">
+                    <label for="checkbox1">Alto Contraste</label>
+                </div>
+                <div class="itemAcessibilidade">
+                    <span class="iconeAcessibilidade">A+</span>
+                    <button id="btnAumentar">Aumentar Fonte</button>
+                </div>
+                <div class="itemAcessibilidade">
+                    <span class="iconeAcessibilidade">Aa</span>
+                    <button id="btnDiminuir">Diminuir Fonte</button>
+                </div>
+                <div class="itemAcessibilidade">
+                    <span class="iconeAcessibilidade">A-</span>
+                    <button id="btnOriginal">Fonte Original</button>
+                </div>
+            </div>
 
             <div class="row">
                 <h1 id="application-title">Cadastro CPF ou CNPJ</h1>

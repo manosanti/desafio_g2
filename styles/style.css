@@ -10,15 +10,17 @@
     /* Modo Escuro | Dark Mode */
     --bg-dark-blue: #004bc4;
     --bg-dark-red: #AE0000;
-
+    --bg-card-dark: #00000020;
+    
     /* Modo Alto Contraste | High Contrast */
     --bg-high-contrast: #ff0;
-
+    --bg-card-high-contrast: #00000020;
+    
+    
     --bg-blue-hover: #1f5dc1;
 }
 
 body.light {
-
     --bg-body: var(--bg-white);
     --text-color: var(--bg-dark);
     --bg-button: var(--bg-blue);
@@ -30,18 +32,35 @@ body.dark {
     --text-color: var(--bg-white);
     --bg-button: var(--bg-dark-blue);
     --text-color-red: var(--bg-dark-red);
+    
 }
 
-body.altoContraste {
+body.high-contrast {
     --bg-body: var(--bg-dark);
-    --text-color: var(--bg-high-contrast);
-    --bg-button: #000;
-    --text-color-red: #FFF;
+    --bg-button: var(--bg-high-contrast);
+    --text-color-red: var(--bg-red);
+    color: var(--bg-white);
+    th {
+        color: var(--bg-dark);
+    }
+    .btn-register {
+        color: var(--bg-dark);
+    }
+    .row {
+        background-color: var(--bg-dark);
+    }
+    #myButton {
+        color: var(--bg-high-contrast);  
+    }
+    .switch > .button::before {
+        background-color: var(--bg-dark);
+    }
 }
 
 body {
     background-color: var(--bg-body);
     color: var(--text-color);
+    font-size: 1rem;
 }
 
 * {
@@ -221,6 +240,7 @@ td {
 .btnRemove {
     text-align: center;
 }
+
 .btnRemove i {
     color: var(--text-color-red);
 }
@@ -232,6 +252,7 @@ td {
         max-width: 100%;
         padding: 1.5rem;
     }
+
     .row {
         padding: 1.5rem;
     }
@@ -245,12 +266,17 @@ td {
     font-size: 2rem;
     cursor: pointer;
     transition: 0.3s;
+    ;
+}
+
+#toggle-mode:enabled {
+    color: var(--bg-blue);
+    right: 2rem;
 }
 
 #toggle-mode:hover {
     transform: scale(1.1);
     color: var(--bg-button);
-    right: 4rem;
 }
 
 .menu-items {
@@ -267,7 +293,41 @@ body.dark {
         background-color: #00000020;
         color: var(--bg-white);
     }
+
     .borabill {
         color: white;
     }
+}
+
+#myButton {
+    position: absolute;
+    right: 4rem;
+    transition: right 0.5s ease-out;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: var(--bg-blue);
+}
+#myButton.active {
+    right: 13rem;
+}
+#myMenu {
+    display: none;
+    position: absolute;
+    right: 4rem;
+}
+
+#myMenu a {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+}
+
+#myButton.active+#myMenu {
+    display: block;
+}
+
+#myButton.active+#myMenu a {
+    animation: slideIn 0.5s forwards;
+    opacity: 1;
 }
