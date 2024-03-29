@@ -7,8 +7,7 @@ btn.addEventListener('change', (e) => {
     // document.body.classList.toggle('dark', e.target.checked);
 
     if (e.target.checked) {
-        body.classList.remove('light');
-        body.classList.add('dark');
+        body.classList.remove('light', 'high-contrast');        body.classList.add('dark');
     } else {
         body.classList.remove('dark');
         body.classList.add('light');
