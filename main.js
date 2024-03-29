@@ -10,6 +10,18 @@ class FormValidator {
             $('#form').attr('placeholder', 'CPF');
             $('#form').attr('maxlength', '14');
 
+            $('#toggle-mode').click(function(){
+                $('body').toggleClass('light-mode dark-mode');
+            })
+
+            $('.icon').click(function() {
+                $('.menu-items').toggle(); // Alternar entre exibição e ocultação ao clicar no ícone
+            });
+
+            $('#toggle-mode').on('click', function(){
+                
+            })
+
         });
 
         $('#form').on('input', function() {

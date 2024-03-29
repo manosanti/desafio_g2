@@ -8,16 +8,42 @@
         href="https://play-lh.googleusercontent.com/DS_cXC2lkJBPUUxIu579yD-Vonud0LWnBxYv_LEnx1xFiSm2b3ZU2b4eYuXbDy-RTZQ=w240-h480-rw"
         type="image/x-icon">
     <title>CPF ou CNPJ | Cadastro</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- <link rel="stylesheet" href="src/scss/index.scss"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <style id="accessibilityStyles"></style> -->
     </head>
-
 <body>
     <main>
         <div id="container">
+            
+            <!-- <div id="accessibilityMenu">
+                <button onclick="toggleHighContrast()">Alto Contraste</button>
+                <button onclick="toggleDarkMode()">Modo Escuro</button>
+                <button onclick="increaseFontSize()">Aumentar Fonte</button>
+                <button onclick="resetFontSize()">Fonte Original</button>
+                <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+                <button onclick="toggleMarker()">Marcador</button>
+                <button onclick="toggleGuideLine()">Linha Guia</button>
+                <button onclick="reset()">Redefinir</button>
+            </div> -->
+            <input type="checkbox" id="btn" name="btn">
+            <label for="checkbox1" class="borabill">Opção 1</label>
+            
+            <!-- <div id="accessibilityMenu">
+                <div class="menu-items">
+                    <ul>
+                        <li></li>
+                        <li>Menu Item 2</li>
+                        <li>Menu Item 3</li>
+                    </ul>
+                </div>
+            </div> -->
+            
+
             <div class="row">
                 <h1 id="application-title">Cadastro CPF ou CNPJ</h1>
                 <form action="" name="register_cpf_cnpj" method="" onsubmit="return validator.validateCPForCNPJ()">
@@ -55,7 +81,7 @@
                             <tr>
                                 <th>CPF/CNPJ</th>
                                 <th>Tipo</th>
-                                <th>Apagar</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody id="tableData"></tbody>
@@ -65,6 +91,7 @@
         </div>
     </main>
 
+    <script src="./accessibilityMenu.js"></script>
     <script src="./main.js" type="text/javascript"></script>
 </body>
 

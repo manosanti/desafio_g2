@@ -2,14 +2,45 @@
 
 :root {
     --bg-white: #FFF;
-    --bg-dark: #655b5b;
+    --bg-dark: #111111;
     --bg-blue: #2871E6;
     --bg-red: #DD1313;
     --border: 2.25rem;
 
-    /* Hover */
+    /* Modo Escuro | Dark Mode */
+    --bg-dark-blue: #004bc4;
+    --bg-dark-red: #AE0000;
+
+    /* Modo Alto Contraste | High Contrast */
+    --bg-high-contrast: #ff0;
 
     --bg-blue-hover: #1f5dc1;
+}
+
+body.light {
+    --bg-body: var(--bg-white);
+    --text-color: var(--bg-dark);
+    --bg-button: var(--bg-blue);
+    --text-color-red: var(--bg-red);
+}
+
+body.dark {
+    --bg-body: var(--bg-dark);
+    --text-color: var(--bg-white);
+    --bg-button: var(--bg-dark-blue);
+    --text-color-red: var(--bg-dark-red);
+}
+
+body.altoContraste {
+    --bg-body: var(--bg-dark);
+    --text-color: var(--bg-high-contrast);
+    --bg-button: #000;
+    --text-color-red: #FFF;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-color);
 }
 
 * {
@@ -17,6 +48,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Open Sans", 'sans-serif';
+}
+
+#form:focus-visible {
+    border: none;
+}
+
+.btn-register:focus-visible {
+    outline: none;
 }
 
 /* Formulário Box */
@@ -56,7 +95,7 @@
 
 .switch>.button {
     display: inline-block;
-    background-color: var(--bg-blue);
+    background-color: var(--bg-button);
     width: 3.5rem;
     height: 2.25rem;
     border-radius: 5.25rem;
@@ -88,7 +127,7 @@ input:checked+.button::before {
     border-radius: var(--border);
     height: 3rem;
     padding: 0 .8rem;
-    border: solid .125rem var(--bg-blue);
+    border: solid .125rem var(--bg-button);
     margin: .2rem 0;
 
     &:focus {
@@ -118,9 +157,9 @@ input:checked+.button::before {
     height: 2.5rem;
     border: none;
     border-radius: var(--border);
-    border: solid .125rem var(--bg-blue);
+    border: solid .125rem var(--bg-button);
     cursor: pointer;
-    background-color: var(--bg-blue);
+    background-color: var(--bg-button);
     color: var(--bg-white);
     transition: 0.3s;
     font-size: 1rem;
@@ -162,7 +201,7 @@ caption {
 
 /* Estilo do cabeçalho */
 th {
-    background-color: #2871E6;
+    background-color: var(--bg-button);
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -182,7 +221,7 @@ td {
     text-align: center;
 }
 .btnRemove i {
-    color: var(--bg-red);
+    color: var(--text-color-red);
 }
 
 /* Media Query */
@@ -194,5 +233,40 @@ td {
     }
     .row {
         padding: 1.5rem;
+    }
+}
+
+#toggle-mode {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggle-mode:hover {
+    transform: scale(1.1);
+    color: var(--bg-button);
+    right: 4rem;
+}
+
+.menu-items {
+    display: none;
+}
+
+/* Dark Mode | Modo Escuro */
+
+body.dark {
+    background-color: var(--bg-dark);
+    color: black;
+
+    .row {
+        background-color: #00000020;
+        color: var(--bg-white);
+    }
+    .borabill {
+        color: white;
     }
 }
