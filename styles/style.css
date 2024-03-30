@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); */
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/src/fonts/OpenSans-VariableFont_wdth_wght.ttf') format('truetype');
+}
+
+
 
 :root {
     --bg-white: #FFF;
@@ -31,10 +38,6 @@ body.light {
     #form:focus {
         border: var(--bg-blue) .125rem solid;
     }
-    /* .btn-register:hover {
-        border: none;
-        background-color: var(--bg-dark-blue);
-    } */
 }
 
 body.dark {
