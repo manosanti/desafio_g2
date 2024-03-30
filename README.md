@@ -1,14 +1,14 @@
 # 🪪 Cadastro de CPF ou CNPJ (Desafio - G2 Tecnologia)
 
 Olá, seja bem-vindo ao desafio! Este projeto é um formulário dinâmico que registra CPF's e CNPJ's, com acessibilidade visual, dicas nos campos e responsividade completa.
-Este projeto foi desenvolvolvido usando <strong>Bootstrap 5.3</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>jQuery</strong>.
+Este projeto foi desenvolvolvido usando <strong>Bootstrap 5</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>jQuery</strong>.
 
 ## Você pode acessar o sistema por aqui:
 
 <a href="https://tesla-finance-bank.vercel.app">![desafio-g2-apresentacao](https://github.com/manosanti/desafio_g2/assets/100389856/728d9d0f-542e-4d6e-b32e-44ad451b95b4)
 </a>
 *todos os dados emitidos são dados puramente fictícios sem vínculos com a realidade <br>
-<a href="https://tesla-finance-bank.vercel.app">Clique aqui, ou na imagem acima para acessar o sistema ☝️.</a>
+<a href="https://desafio-g2.vercel.app/">Clique aqui, ou na imagem acima para acessar o sistema ☝️.</a>
 
 ## 🌐 Tecnologias:
 <div class="d-flex">
@@ -38,7 +38,7 @@ Antes de mais nada, gostaria de destacar algumas observações do sistema.
  <li>O nome das classes estão em português para melhor compreensão e entendimento do código. O meu padrão é utilizar todos os nomes de classes, funções e etc em inglês, estou apenas ressaltando o motivo do código estar em português-br.</li>
 </ul>
 
-# 🔎 O que temos no sistema?
+## 🔎 O que temos no sistema?
 
 <ul>
  <li>No sistema, temos um Input que recebe os valores de CPF e/ou CNPJ digitado pelo usuário, não possui um limite máximo de registro, nem minimo.</li>
@@ -49,4 +49,36 @@ Antes de mais nada, gostaria de destacar algumas observações do sistema.
 
 ## 🚫 Você não pode:
 
-Utilizar CPF/CNPJ repetidos, caso contrário retornará um alerta informado que o CPF/CNPJ já existe na lista;
+<ul>
+ <li>Utilizar CPF/CNPJ repetidos, caso contrário retornará um alerta informado que o CPF/CNPJ já existe na lista.</li>
+<li>Inserir letras e caracteres no campo de registro, o formulário está formatado para receber apenas caracteres numéricos.</li>
+</ul>
+
+## 🌎 Menu de Acessibilidade:
+O sistema oferece um menu de acessibilidade visual que permite aos usuários personalizar a experiência de acordo com suas necessidades.
+
+<ul>
+ <li><strong>Alternância entre Modo Claro/Escuro:</strong> Permite aos usuários escolher entre diferentes esquemas de cores para conforto visual e legibilidade em diferentes condições de iluminação.</li>
+<li><strong>Modo de Alto Contraste:</strong> Oferece uma visualização de alto contraste para facilitar a identificação de elementos na interface, beneficiando usuários com deficiências visuais ou sensibilidade à luz.</li>
+<li><strong>Ajuste do Tamanho da Fonte:</strong> Fornece opções para aumentar, diminuir ou restaurar o tamanho da fonte, permitindo aos usuários adaptar a legibilidade de acordo com suas preferências de leitura e necessidades visuais.</li>
+</ul>
+
+### 💻 Práticas de Desenvolvimento Web:
+Este gráfico representa os resultados de uma análise detalhada do desempenho do sistema. Aqui estão os principais pontos:
+
+## Versão Mobile e Desktop:
+
+<table>
+  <tr>
+    <td><img src="https://github.com/manosanti/desafio_g2/assets/100389856/5cf2f5da-9534-4002-8171-8d471b27be30" alt="Imagem 1"></td>
+    <td><img src="https://github.com/manosanti/desafio_g2/assets/100389856/5cf2f5da-9534-4002-8171-8d471b27be30" alt="Imagem 2"></td>
+  </tr>
+</table>
+
+<ul>
+ <li><strong>Performance:</strong> O sistema obteve excelentes pontuações em várias métricas, incluindo velocidade de carregamento, acessibilidade, melhores práticas e SEO.</li>
+ <li><strong>Acessibilidade:</strong> A pontuação de acessibilidade é alta, o que significa que o sistema é projetado para ser acessível a todos os usuários, independentemente de suas habilidades ou dispositivos.</li>
+ <li><strong>Melhores Práticas:</strong> O sistema segue as melhores práticas recomendadas, garantindo uma experiência consistente e confiável para os usuários.</li>
+ <li><strong>SEO:</strong> A otimização para mecanismos de busca (SEO) é sólida, o que pode ajudar a melhorar o ranqueamento nos resultados de pesquisa.</li>
+</ul>
+
