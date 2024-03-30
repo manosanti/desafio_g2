@@ -28,8 +28,8 @@ window.onload = function () {
     })
     btnOriginal.addEventListener('click', function(){
         numClicks = 0;
-        tamanhoFonte = 100; // Resetar o tamanho da fonte para 100%
-        document.body.style.fontSize = tamanhoFonte + '%'; // Define o tamanho da fonte para 100%
+        tamanhoFonte = 100;
+        document.body.style.fontSize = tamanhoFonte + '%';
     });
 
     const body = document.body;
@@ -121,8 +121,10 @@ btnHighContrast.addEventListener('change', (e) => {
 
 function toggleMenu() {
     var button = document.getElementById('myButton');
+    var menu = document.getElementById('myMenu');
     button.classList.toggle('active');
-};
+    menu.classList.toggle('active');
+}
 
 function checkOnlyOne(checkboxName) {
     var checkboxes = document.getElementsByName(checkboxName);

@@ -26,6 +26,15 @@ body.light {
     --text-color-red: var(--bg-red);
     --icon-color: var(--bg-dark);
     --icon-button: var(--bg-white);
+    --bg-button-hover: var(--bg-dark-blue);
+
+    #form:focus {
+        border: var(--bg-blue) .125rem solid;
+    }
+    /* .btn-register:hover {
+        border: none;
+        background-color: var(--bg-dark-blue);
+    } */
 }
 
 body.dark {
@@ -35,6 +44,7 @@ body.dark {
     --text-color-red: var(--bg-dark-red);
     --icon-color: var(--bg-white);
     --icon-button: var(--bg-dark);
+    --bg-button-hover: var(--bg-blue);
 }
 
 body.high-contrast {
@@ -45,6 +55,7 @@ body.high-contrast {
     --icon-color: var(--bg-white);
     --icon-button: var(--bg-dark);
     --bg-hover: var(--opacity-hover);
+    --bg-button-hover: var(--bg-high-contrast);
     color: var(--bg-white);
     th {
         color: var(--bg-dark);
@@ -130,6 +141,7 @@ body {
     border-radius: 5.25rem;
     cursor: pointer;
     position: relative;
+    z-index: 102;
 }
 
 .switch>.button::before {
@@ -240,7 +252,7 @@ input:checked+.button::before {
 }
 
 .btn-register:hover {
-    background-color: var(--bg-blue-hover);
+    background-color: var(--bg-button-hover);
 }
 
 .iconeInput {
@@ -306,13 +318,21 @@ td {
 /* Media Query */
 
 @media (max-width: 768px) {
+    
     #container {
         max-width: 100%;
-        padding: 1.5rem;
+        padding: .5rem;
     }
 
     .row {
         padding: 1.5rem;
+    }
+
+    #myMenu, #myMenu.active {
+        bottom: 0;
+    }
+    #myButton {
+        bottom: 3%;
     }
 }
 
@@ -351,43 +371,36 @@ body.dark {
         background-color: #00000020;
         color: var(--bg-white);
     }
-
-    .borabill {
-        color: white;
-    }
 }
 
 #myButton {
     z-index: 100;
     position: absolute;
-    right: 5rem;
+    right: 3rem;
     transition: right 0.5s ease-out;
     font-size: 2rem;
     cursor: pointer;
-    border: none;
     background-color: transparent;
-    color: var(--bg-blue);
+    border: none;
+}
+#myButton i {
+    border: var(--bg-button) 2px solid;
+    background-color: transparent;
+    color: var(--bg-button);
+    padding: 3px;
+    border-radius: 30px;
 }
 
 #myButton.active {
-    right: 21rem;
+    right: 15rem; /* Ajuste conforme necessário */
 }
+
 #myMenu {
-    display: none;
-    position: absolute;
-    right: 4rem;
+    position: fixed;
+    right: -15rem;
+    transition: right 0.5s ease-out;
 }
 
-#myMenu a {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-}
-
-#myButton.active+#myMenu {
-    display: block;
-}
-
-#myButton.active+#myMenu a {
-    animation: slideIn 0.5s forwards;
-    opacity: 1;
+#myMenu.active {
+    right: 1rem; /* Posição quando ativado */
 }
