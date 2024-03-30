@@ -10,75 +10,77 @@
     <meta name="description" content="G2 Tecnologia, consultoria SAP e ERP. Parceiros SAP com soluções de gestão, metodologia ágil e foco no cliente.">
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- jQuery 3.7.1 -->
     <script src="src/libs/js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body class="light">
     <main>
-        <div id="container">
-            <button id="myButton" onclick="toggleMenu()"><i class="fa-solid fa-universal-access" title="Menu de Acessibilidade"></i></button>
+        <div id="formContainer">
+            <!-- Menu de Acessibilidade -->
+            <button id="btnAcessibilidade" onclick="toggleMenu()" title="Menu de Acessibilidade"><i class="fa-solid fa-universal-access"></i></button>
 
-            <div id="myMenu">
-                <button class="itemAcessibilidade" onclick="document.getElementById('btnDark').click(); checkOnlyOne('btbDark');">
+            <div id="menuAcessibilidade">
+                <button class="itemAcessibilidade" onclick="document.getElementById('btnDark').click(); desmarcarCheckbox('btbDark');" title="Alternar para o Tema Escuro">
                     <div class="iconeAcessibilidade">
                         <i class="fa-solid fa-moon"></i>
                         <input type="checkbox" id="btnDark" name="btnDark" class="iconeInput">
                     </div>
                     <span>Modo Escuro</span>
                 </button>
-                <button class="itemAcessibilidade" onclick="document.getElementById('high-contrast').click(); checkOnlyOne('high-contrast');">
+                <button class="itemAcessibilidade" onclick="document.getElementById('high-contrast').click(); desmarcarCheckbox('high-contrast');" title="Alternar para o Tema Alto Contraste">
                     <div class="iconeAcessibilidade">
                         <i class="fa-solid fa-circle-half-stroke"></i>
                         <input type="checkbox" id="high-contrast" class="iconeInput" name="high-contrast">
                     </div>
                     <span>Alto Contraste</span>
                 </button>
-                <button class="itemAcessibilidade" id="btnAumentar">
+                <button class="itemAcessibilidade" id="btnAumentar" title="Aumentar o Tamanho da Fonte">
                     <div class="iconeAcessibilidade">A+</div>
                     <span>Aumentar Fonte</span>
                 </button>
-                <button class="itemAcessibilidade" id="btnDiminuir">
+                <button class="itemAcessibilidade" id="btnDiminuir" title="Diminuir o Tamanho da Fonte">
                     <div class="iconeAcessibilidade">A-</div>
                     <span>Diminuir Fonte</span>
                 </button>
-                <button class="itemAcessibilidade" id="btnOriginal">
+                <button class="itemAcessibilidade" id="btnOriginal" title="Restaurar o Tamanho da Fonte">
                     <div class="iconeAcessibilidade">Aa</div>
                     <span>Fonte Original</span>
                 </button>
             </div>
 
-            <div class="row">
-                <h1 id="application-title">Cadastro CPF ou CNPJ</h1>
-                <form action="" name="register_cpf_cnpj" method="" onsubmit="return validator.validateCPForCNPJ()">
-                    <div class="switch">
-                        <span>CPF</span>
+            <!-- Seção Cadastrar CPF/CNPJ -->
+            <div class="formRow">
+                <h1>Cadastrar CPF ou CNPJ</h1>
+                <form name="cadastroCPFeCNPJ" onsubmit="return validator.validarCPFouCNPJ()">
+                    <div class="btnAlternar">
+                        <span title="Modo CPF">CPF</span>
                         <input type="checkbox" id="check">
                         <label for="check" class="button"></label>
-                        <span>CNPJ</span>
+                        <span title="Modo CNPJ">CNPJ</span>
                     </div>
 
-                    <div class="tips">
-                        <ul class="cpfTips">
-                            <li>CPF: 11 dígitos<span class="tipsRequired">*</span></li>
+                    <div class="dicas">
+                        <ul class="dicasCPF">
+                            <li>CPF: 11 dígitos<span class="dicasObrigatorias">*</span></li>
                             <li>Inserir apenas números</li>
                         </ul>
                     </div>
 
-                    <div class="tips">
-                        <ul class="cnpjTips">
-                            <li>CNPJ: 14 dígitos<span class="tipsRequired">*</span></li>
+                    <div class="dicas">
+                        <ul class="dicasCNPJ">
+                            <li>CNPJ: 14 dígitos<span class="dicasObrigatorias">*</span></li>
                             <li>Inserir apenas números</li>
                         </ul>
                     </div>
-                    <input class="cpf_cnpj" name="cpf_cnpj" autocomplete="off" id="form" type="text" placeholder="CPF">
+                    <input class="inputCadastro" name="cpf_cnpj" autocomplete="off" id="form" type="text" placeholder="CPF">
 
-                    <button type="submit" class="btn-register">Cadastrar</button>
+                    <button type="submit" class="btnCadastro" title="Cadastrar CPF ou CNPJ">Cadastrar</button>
                 </form>
 
+                <!-- Seção Renderizando os Novos CPF's e CNPJ's -->
                 <div>
                     <table>
-                        <caption class="caption-table">
+                        <caption class="tituloTabela">
                             <p>Lista de CPF's e CNPJ's</p>
                         </caption>
                         <thead id="tableHead">
@@ -95,7 +97,7 @@
         </div>
     </main>
 
-    <script src="./accessibilityMenu.js"></script>
+    <script src="./menuAcessibilidade.js"></script>
     <script src="./main.js" type="text/javascript"></script>
 </body>
 

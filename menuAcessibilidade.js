@@ -1,12 +1,13 @@
 // Aumentar, Diminuir e Restaurar o Tamanho da Fonte
 window.onload = function () {
-    var tamanhoFonte = 100;
-    var tamanhDiferenca = 10;
-    var btnAumentar = document.getElementById('btnAumentar');
-    var numClicks = 0;
-    var btnDiminuir = document.getElementById('btnDiminuir');
-    var btnOriginal = document.getElementById('btnOriginal');
+    let tamanhoFonte = 100;
+    let tamanhDiferenca = 10;
+    let btnAumentar = document.getElementById('btnAumentar');
+    let numClicks = 0;
+    let btnDiminuir = document.getElementById('btnDiminuir');
+    let btnOriginal = document.getElementById('btnOriginal');
 
+    // Adicionar eventos de clique para aumentar e diminuir o tamanho da fonte
     btnAumentar.addEventListener('click', function () {
         console.log('Apertou')
         if (numClicks < 4) {
@@ -17,6 +18,7 @@ window.onload = function () {
             alert('Você atingiu o limite máximo de zoom');
         }
     });
+
     btnDiminuir.addEventListener('click', function () {
         if (numClicks > -4) {
             tamanhoFonte = tamanhoFonte - tamanhDiferenca;
@@ -25,14 +27,13 @@ window.onload = function () {
         } else {
             alert('Você atingiu o limite mínimo de zoom');
         }
-    })
+    });
+
     btnOriginal.addEventListener('click', function(){
         numClicks = 0;
         tamanhoFonte = 100;
         document.body.style.fontSize = tamanhoFonte + '%';
     });
-
-    const body = document.body;
 
     // Função para definir um cookie
     function setCookie(name, value, days) {
@@ -68,18 +69,14 @@ window.onload = function () {
     // Aplicar o tema salvo ao carregar a página
     applyThemeFromCookie();
 
-    // Adicionar eventos de mudança para alternar o tema e salvar no cookie
-    const btnDark = document.getElementById('btnDark');
-    const btnHighContrast = document.getElementById('high-contrast');
-
     btnDark.addEventListener('change', function () {
         if (this.checked) {
             body.classList.add('dark');
             body.classList.remove('high-contrast');
-            setCookie('theme', 'dark', 30); // Salvar o tema escuro no cookie por 30 dias
+            setCookie('theme', 'dark', 30);
         } else {
             body.classList.remove('dark');
-            setCookie('theme', 'light', 30); // Salvar o tema claro no cookie por 30 dias
+            setCookie('theme', 'light', 30);
         }
     });
 
@@ -95,9 +92,9 @@ window.onload = function () {
     });
 }
 
-const btnDark = document.getElementById('btnDark');
-const btnHighContrast = document.getElementById('high-contrast');
-const body = document.body;
+let btnDark = document.getElementById('btnDark');
+let btnHighContrast = document.getElementById('high-contrast');
+let body = document.body;
 
 btnDark.addEventListener('change', (e) => {
     if (e.target.checked) {
@@ -119,15 +116,17 @@ btnHighContrast.addEventListener('change', (e) => {
     }
 });
 
+// Função para mostrar/arrastar o Menu de Acessibilidade
 function toggleMenu() {
-    var button = document.getElementById('myButton');
-    var menu = document.getElementById('myMenu');
+    let button = document.getElementById('btnAcessibilidade');
+    let menu = document.getElementById('menuAcessibilidade');
     button.classList.toggle('active');
     menu.classList.toggle('active');
 }
 
-function checkOnlyOne(checkboxName) {
-    var checkboxes = document.getElementsByName(checkboxName);
+// Função para marcar apenas um checkbox de tema por vez
+function desmarcarCheckbox(checkboxName) {
+    let checkboxes = document.getElementsByName(checkboxName);
     checkboxes.forEach((item) => {
         if (item !== event.target) {
             item.checked = false;

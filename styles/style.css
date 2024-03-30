@@ -1,110 +1,46 @@
+/* Definição de Fonte */
 @font-face {
     font-family: 'Open Sans';
     src: url('/src/fonts/OpenSans-VariableFont_wdth_wght.ttf') format('truetype');
     font-display: swap;
 }
 
-
-
 :root {
+    /* Cores */
     --bg-white: #FFF;
     --bg-dark: #111111;
     --bg-blue: #2871E6;
     --bg-red: #DD1313;
     --border: 2.25rem;
-
+    --bg-opacity: rgba(0, 0, 0, 0.33);
     /* Modo Escuro | Dark Mode */
     --bg-dark-blue: #004bc4;
     --bg-dark-red: #AE0000;
     --bg-card-dark: #00000020;
-    
     /* Modo Alto Contraste | High Contrast */
     --bg-high-contrast: #ff0;
     --bg-card-high-contrast: #00000020;
-    
-    --bg-opacity: rgba(0, 0, 0, 0.33);
 }
 
-body.light {
-    --bg-body: var(--bg-white);
-    --text-color: var(--bg-dark);
-    --bg-button: var(--bg-blue);
-    --text-color-red: var(--bg-red);
-    --icon-color: var(--bg-dark);
-    --icon-button: var(--bg-white);
-    --bg-button-hover: var(--bg-dark-blue);
-
-    #form:focus {
-        border: var(--bg-blue) .125rem solid;
-    }
-}
-
-body.dark {
-    --bg-body: var(--bg-dark);
-    --text-color: var(--bg-white);
-    --bg-button: var(--bg-dark-blue);
-    --text-color-red: var(--bg-dark-red);
-    --icon-color: var(--bg-white);
-    --icon-button: var(--bg-dark);
-    --bg-button-hover: var(--bg-blue);
-}
-
-body.high-contrast {
-    --bg-body: var(--bg-dark);
-    --bg-button: var(--bg-high-contrast);
-    --text-color-red: var(--bg-red);
-    --text-color: var(--bg-dark);
-    --icon-color: var(--bg-white);
-    --icon-button: var(--bg-dark);
-    --bg-hover: var(--opacity-hover);
-    --bg-button-hover: var(--bg-high-contrast);
-    color: var(--bg-white);
-    th {
-        color: var(--bg-dark);
-    }
-    .btn-register {
-        color: var(--bg-dark);
-    }
-    .row {
-        background-color: var(--bg-dark);
-    }
-    #myButton {
-        color: var(--bg-high-contrast);  
-    }
-    .switch > .button::before {
-        background-color: var(--bg-dark);
-    }
-}
-
-body {
-    background-color: var(--bg-body);
-    color: var(--text-color);
-    font-size: 1rem;
-}
-
+/* Estilos Globais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Open Sans", 'sans-serif';
 }
+body {
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    font-size: 1rem;
+}
 
+/* Formulário */
 #form:focus-visible {
     border: none;
     outline: none;
 }
-
-.btn-register:focus-visible {
-    outline: none;
-}
-
-/* Formulário Box */
-
-#application-title {
-    text-align: center;
-}
-
-#container {
+#formContainer {
     max-width: 50%;
     margin: 0 auto;
     width: 100%;
@@ -113,59 +49,21 @@ body {
     align-items: center;
     display: flex;
 }
-
-.row {
+.formRow {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 4rem;
     border-radius: var(--border);
-    /* background-color: var(--bg-white); */
     box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
-
 }
-
-
-
-.switch {
-    margin: 1rem auto;
-    width: 10rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.formRow h1 {
+    text-align: center;
 }
-
-.switch>.button {
-    display: inline-block;
-    background-color: var(--bg-button);
-    width: 3.5rem;
-    height: 2.25rem;
-    border-radius: 5.25rem;
-    cursor: pointer;
-    position: relative;
-    z-index: 102;
+.btnCadastro:focus-visible {
+    outline: none;
 }
-
-.switch>.button::before {
-    position: absolute;
-    content: '';
-    background-color: var(--bg-white);
-    width: 1.625rem;
-    height: 1.625rem;
-    border-radius: 12.5rem;
-    margin: .3125rem;
-    transition: 0.4s;
-}
-
-input:checked+.button::before {
-    transform: translateX(1.25rem);
-}
-
-#check {
-    display: none;
-}
-
-.cpf_cnpj {
+.inputCadastro {
     width: 100%;
     border-radius: var(--border);
     height: 3rem;
@@ -178,23 +76,142 @@ input:checked+.button::before {
         padding: none;
     }
 }
-
-.tips {
+.dicas {
     font-size: 1rem;
     margin: 0 0 1rem 0;
 }
-
-.tips > ul > li {
+.dicas > ul > li {
     list-style: none;
     text-align: center;
     justify-content: center;
     margin: 0 auto;
 }
-
-.tipsRequired {
-    color: red;
+.dicasObrigatorias {
+    color: var(--text-color-red);
+}
+.btnCadastro {
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    border-radius: var(--border);
+    border: solid .125rem var(--bg-button);
+    cursor: pointer;
+    background-color: var(--bg-button);
+    color: var(--bg-white);
+    transition: 0.3s;
+    font-size: 1rem;
+}
+.btnCadastro:hover {
+    background-color: var(--bg-button-hover);
+}
+.iconeInput {
+    visibility: hidden;
+    width: 0;
 }
 
+/* Botões e Interações */
+.btnAlternar {
+    margin: 1rem auto;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btnAlternar > .button {
+    display: inline-block;
+    background-color: var(--bg-button);
+    width: 3.5rem;
+    height: 2.25rem;
+    border-radius: 5.25rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 102;
+}
+.btnAlternar > .button::before {
+    position: absolute;
+    content: '';
+    background-color: var(--bg-white);
+    width: 1.625rem;
+    height: 1.625rem;
+    border-radius: 12.5rem;
+    margin: .3125rem;
+    transition: 0.4s;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25rem;
+}
+caption {
+    font-size: 1.2em;
+    margin-bottom: .625rem;
+    font-weight: bold;
+}
+th {
+    background-color: var(--bg-button);
+    border: .0625rem solid #ddd;
+    padding: .5rem;
+    text-align: left;
+}
+td {
+    border: .0625rem solid #ddd;
+    padding: .5rem;
+}
+.btnRemove {
+    text-align: center;
+}
+.btnRemove i {
+    color: var(--text-color-red);
+}
+#tableHead {
+    color: var(--bg-white);
+}
+.tituloTabela {
+    width: 100%;
+    margin: 1.875rem 0 1rem 0;
+}
+.tituloTabela>p {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Acessibilidade */
+#btnAcessibilidade {
+    z-index: 100;
+    position: absolute;
+    right: 3rem;
+    transition: right 0.5s ease-out;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+#btnAcessibilidade i {
+    border: var(--bg-button) .125rem solid;
+    color: var(--bg-button);
+    padding: .1875rem;
+    border-radius: 1.875rem;
+}
+#btnAcessibilidade.active {
+    right: 15rem; /* Ajuste conforme necessário */
+}
+#menuAcessibilidade {
+    position: fixed;
+    right: -15rem;
+    transition: right 0.5s ease-out;
+}
+#menuAcessibilidade.active {
+    right: 1rem;
+}
+input:checked+.button::before {
+    transform: translateX(1.25rem);
+}
+#check {
+    display: none;
+}
 .itemAcessibilidade {
     cursor: pointer;
     border: none;
@@ -211,15 +228,12 @@ input:checked+.button::before {
     background-color: var(--bg-opacity);
     color: var(--bg-white);
 }
-
 .iconeAcessibilidade label {
     visibility: hidden;
 }
-
 .itemAcessibilidade span {
     margin: 0 0 0 .4rem;
 }
-
 .itemAcessibilidade button {
     color: var(--text-color);
     background-color: transparent;
@@ -227,7 +241,6 @@ input:checked+.button::before {
     cursor: pointer;
     margin: 0 1rem;
 }
-
 .iconeAcessibilidade {
     display: flex;
     background-color: var(--icon-button);
@@ -240,169 +253,68 @@ input:checked+.button::before {
     color: var(--icon-color);
 }
 
-.btn-register {
-    width: 100%;
-    height: 2.5rem;
-    border: none;
-    border-radius: var(--border);
-    border: solid .125rem var(--bg-button);
-    cursor: pointer;
-    background-color: var(--bg-button);
+/* Estilos específicos para cada modo/tema */
+body.light {
+    --bg-body: var(--bg-white);
+    --text-color: var(--bg-dark);
+    --bg-button: var(--bg-blue);
+    --text-color-red: var(--bg-red);
+    --icon-color: var(--bg-dark);
+    --icon-button: var(--bg-white);
+    --bg-button-hover: var(--bg-dark-blue);
+
+    #form:focus {
+        border: var(--bg-blue) .125rem solid;
+    }
+}
+body.dark {
+    --bg-body: var(--bg-dark);
+    --text-color: var(--bg-white);
+    --bg-button: var(--bg-dark-blue);
+    --text-color-red: var(--bg-dark-red);
+    --icon-color: var(--bg-white);
+    --icon-button: var(--bg-dark);
+    --bg-button-hover: var(--bg-blue);
+}
+body.high-contrast {
+    --bg-body: var(--bg-dark);
+    --bg-button: var(--bg-high-contrast);
+    --text-color-red: var(--bg-red);
+    --text-color: var(--bg-dark);
+    --icon-color: var(--bg-white);
+    --icon-button: var(--bg-dark);
+    --bg-button-hover: var(--bg-high-contrast);
     color: var(--bg-white);
-    transition: 0.3s;
-    font-size: 1rem;
-}
-
-.btn-register:hover {
-    background-color: var(--bg-button-hover);
-}
-
-.iconeInput {
-    visibility: collapse;
-}
-
-#tableHead {
-    color: var(--bg-white);
-}
-
-.caption-table {
-    width: 100%;
-    margin: 1.875rem 0 1rem 0;
-}
-
-.caption-table>p {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: normal;
-}
-
-/* Tabela CPF's e CNPJ's */
-
-/* Estilo geral */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-caption {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-/* Estilo do cabeçalho */
-th {
-    background-color: var(--bg-button);
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-/* Estilo das células */
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.cnpjTips {
-    display: none;
-}
-
-.btnRemove {
-    text-align: center;
-}
-
-.btnRemove i {
-    color: var(--text-color-red);
+    th {
+        color: var(--bg-dark);
+    }
+    .btnCadastro {
+        color: var(--bg-dark);
+    }
+    .formRow {
+        background-color: var(--bg-dark);
+    }
+    #btnAcessibilidade {
+        color: var(--bg-high-contrast);  
+    }
+    .btnAlternar > .button::before {
+        background-color: var(--bg-dark);
+    }
 }
 
 /* Media Query */
-
 @media (max-width: 768px) {
-    
-    #container {
+    #formContainer {
         max-width: 100%;
         padding: .5rem;
     }
-
-    .row {
+    .formRow {
         padding: 1.5rem;
     }
-
-    #myMenu, #myMenu.active {
+    #menuAcessibilidade, #menuAcessibilidade.active {
         bottom: 0;
     }
-    #myButton {
+    #btnAcessibilidade {
         bottom: 3%;
     }
-}
-
-#toggle-mode {
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    right: 0;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: 0.3s;
-    ;
-}
-
-#toggle-mode:enabled {
-    color: var(--bg-blue);
-    right: 2rem;
-}
-
-#toggle-mode:hover {
-    transform: scale(1.1);
-    color: var(--bg-button);
-}
-
-.menu-items {
-    display: none;
-}
-
-/* Dark Mode | Modo Escuro */
-
-body.dark {
-    background-color: var(--bg-dark);
-    color: black;
-
-    .row {
-        background-color: #00000020;
-        color: var(--bg-white);
-    }
-}
-
-#myButton {
-    z-index: 100;
-    position: absolute;
-    right: 3rem;
-    transition: right 0.5s ease-out;
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
-#myButton i {
-    border: var(--bg-button) 2px solid;
-    background-color: transparent;
-    color: var(--bg-button);
-    padding: 3px;
-    border-radius: 30px;
-}
-
-#myButton.active {
-    right: 15rem; /* Ajuste conforme necessário */
-}
-
-#myMenu {
-    position: fixed;
-    right: -15rem;
-    transition: right 0.5s ease-out;
-}
-
-#myMenu.active {
-    right: 1rem; /* Posição quando ativado */
 }
