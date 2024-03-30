@@ -10,10 +10,6 @@ class FormValidator {
             $('#form').attr('placeholder', 'CPF');
             $('#form').attr('maxlength', '14');
 
-            $('#toggle-mode').click(function () {
-                $('body').toggleClass('light-mode dark-mode');
-            })
-
             $('.icon').click(function () {
                 $('.menu-items').toggle(); // Alternar entre exibição e ocultação ao clicar no ícone
             });
@@ -56,7 +52,6 @@ class FormValidator {
 
         $('#tableData').on('click', '.btnRemove', function (e) {
             e.preventDefault();
-            console.log('Você clicou em um botão');
 
             const id = $(this).data('id');
 
@@ -95,12 +90,12 @@ class FormValidator {
 
         let cpf_cnpj_array = JSON.parse(localStorage.getItem('cpf_cnpj')) || [];
 
-        const exists = cpf_cnpj_array.some(item => item.number === cpf_cnpj);
+        const exists = cpf_cnpj_array.some(item => item.number.replace(/\D/g, '') === cpf_cnpj);
 
         if (exists) {
             alert('CPF/CNPJ já existe na lista.');
             form.reset();
-            return;
+            return false;
         }
 
         if (cpf_cnpj.length === 11) {

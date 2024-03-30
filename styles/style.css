@@ -25,6 +25,8 @@ body.light {
     --text-color: var(--bg-dark);
     --bg-button: var(--bg-blue);
     --text-color-red: var(--bg-red);
+    --icon-color: var(--bg-dark);
+    --icon-button: var(--bg-white);
 }
 
 body.dark {
@@ -32,13 +34,17 @@ body.dark {
     --text-color: var(--bg-white);
     --bg-button: var(--bg-dark-blue);
     --text-color-red: var(--bg-dark-red);
-    
+    --icon-color: var(--bg-white);
+    --icon-button: var(--bg-dark);
 }
 
 body.high-contrast {
     --bg-body: var(--bg-dark);
     --bg-button: var(--bg-high-contrast);
     --text-color-red: var(--bg-red);
+    --text-color: var(--bg-dark);
+    --icon-color: var(--bg-white);
+    --icon-button: var(--bg-dark);
     color: var(--bg-white);
     th {
         color: var(--bg-dark);
@@ -100,10 +106,12 @@ body {
     width: 100%;
     padding: 4rem;
     border-radius: var(--border);
-    background-color: var(--bg-white);
+    /* background-color: var(--bg-white); */
     box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
 
 }
+
+
 
 .switch {
     margin: 1rem auto;
@@ -161,7 +169,7 @@ input:checked+.button::before {
     margin: 0 0 1rem 0;
 }
 
-.tips>ul>li {
+.tips > ul > li {
     list-style: none;
     text-align: center;
     justify-content: center;
@@ -170,6 +178,46 @@ input:checked+.button::before {
 
 .tipsRequired {
     color: red;
+}
+
+.itemAcessibilidade {
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    background-color: var(--bg-button);
+    margin: 1rem 0;
+    padding: .7rem;
+    display: flex;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.iconeAcessibilidade label {
+    visibility: hidden;
+}
+
+.itemAcessibilidade span {
+    margin: 0 0 0 .4rem;
+}
+
+.itemAcessibilidade button {
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+.iconeAcessibilidade {
+    display: flex;
+    background-color: var(--icon-button);
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto 0;
+    color: var(--icon-color);
 }
 
 .btn-register {
@@ -187,6 +235,10 @@ input:checked+.button::before {
 
 .btn-register:hover {
     background-color: var(--bg-blue-hover);
+}
+
+.iconeInput {
+    visibility: collapse;
 }
 
 #tableHead {
@@ -300,8 +352,9 @@ body.dark {
 }
 
 #myButton {
+    z-index: 100;
     position: absolute;
-    right: 4rem;
+    right: 5rem;
     transition: right 0.5s ease-out;
     font-size: 2rem;
     cursor: pointer;
@@ -309,8 +362,9 @@ body.dark {
     background-color: transparent;
     color: var(--bg-blue);
 }
+
 #myButton.active {
-    right: 13rem;
+    right: 21rem;
 }
 #myMenu {
     display: none;

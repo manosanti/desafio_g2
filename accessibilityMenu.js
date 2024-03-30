@@ -122,4 +122,13 @@ btnHighContrast.addEventListener('change', (e) => {
 function toggleMenu() {
     var button = document.getElementById('myButton');
     button.classList.toggle('active');
+};
+
+function checkOnlyOne(checkboxName) {
+    var checkboxes = document.getElementsByName(checkboxName);
+    checkboxes.forEach((item) => {
+        if (item !== event.target) {
+            item.checked = false;
+        }
+    });
 }
